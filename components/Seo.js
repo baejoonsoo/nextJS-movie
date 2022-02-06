@@ -1,8 +1,8 @@
-import Head from "next/head";
+import Head from 'next/head';
 
 const titleObj = {
-  "/": "Home",
-  "/about": "About",
+  '/': 'Home',
+  '/about': 'About',
 };
 
 export default function Seo({ title }) {

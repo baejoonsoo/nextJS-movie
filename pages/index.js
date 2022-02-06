@@ -1,5 +1,5 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
   const [movies, setMovies] = useState();
@@ -7,7 +7,7 @@ export default function Home() {
     (async () => {
       const {
         data: { results },
-      } = await axios.get("/api/movies");
+      } = await axios.get('/api/movies');
       setMovies(results);
     })();
   }, []);
