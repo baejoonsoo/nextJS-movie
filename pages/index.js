@@ -1,20 +1,9 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
 
-export default function Home() {
-  const [movies, setMovies] = useState();
-  useEffect(() => {
-    (async () => {
-      const {
-        data: { results },
-      } = await axios.get('/api/movies');
-      setMovies(results);
-    })();
-  }, []);
+export default function Home({ results }) {
   return (
     <div className="container">
-      {!movies && <h4>Loading...</h4>}
-      {movies?.map((movie) => (
+      {results?.map((movie) => (
         <div key={movie.id} className="movie">
           <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
           <h4>{movie.original_title}</h4>
@@ -44,4 +33,16 @@ export default function Home() {
       `}</style>
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  const {
+    data: { results },
+  } = await axios.get('http://localhost:3000/api/movies');
+
+  return {
+    props: {
+      results,
+    },
+  };
 }
