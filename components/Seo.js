@@ -5,10 +5,10 @@ const titleObj = {
   '/about': 'About',
 };
 
-export default function Seo({ title }) {
+export default function Seo({ title, custom }) {
   return (
     <Head>
-      <title>{titleObj[title]} | Next Movies</title>
+      <title>{custom ? title : titleObj[title]} | Next Movies</title>
     </Head>
   );
 }

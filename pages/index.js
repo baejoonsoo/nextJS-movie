@@ -5,19 +5,19 @@ import { useRouter } from 'next/router';
 export default function Home({ results }) {
   const router = useRouter();
 
-  const imgClick = (id, title) => {
-    router.push(`/movies/${title}/${id}`);
+  const imgClick = (id) => {
+    router.push(`/movies/${id}`);
   };
   return (
     <div className="container">
       {results?.map((movie) => (
         <div key={movie.id} className="movie">
           <img
-            onClick={() => imgClick(movie.id, movie.original_title)}
+            onClick={() => imgClick(movie.id)}
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
           />
           <h4>
-            <Link href={`/movies/${movie.original_title}/${movie.id}`}>
+            <Link href={`/movies/${movie.id}`}>
               <a>{movie.original_title}</a>
             </Link>
           </h4>
