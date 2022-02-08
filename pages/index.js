@@ -16,6 +16,9 @@ export default function Home({ results }) {
           padding: 20px;
           gap: 200px;
         }
+        .movie {
+          cursor: pointer;
+        }
         .movie img {
           max-width: 100%;
           align-self: center;
