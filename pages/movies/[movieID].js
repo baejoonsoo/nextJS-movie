@@ -1,11 +1,15 @@
 import { useRouter } from 'next/router';
 
 export default function MovieDetail() {
-  const {
-    query: { movieID },
-  } = useRouter();
+  // const {
+  //   query: { movieID },
+  // } = useRouter();
+  const router = useRouter();
+  console.log(router);
 
-  console.log(movieID);
-
-  return 'detail';
+  return (
+    <div>
+      <h4>{router.query.title || 'Loding...'}</h4>
+    </div>
+  );
 }
