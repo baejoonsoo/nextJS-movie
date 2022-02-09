@@ -18,7 +18,7 @@ export default function Home({ results }) {
           />
           <h4>
             <Link href={`/movies/${movie.id}`}>
-              <a>{movie.original_title}</a>
+              <a>{movie.title}</a>
             </Link>
           </h4>
         </div>
